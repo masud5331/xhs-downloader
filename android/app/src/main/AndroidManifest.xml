@@ -6,26 +6,17 @@
          PERMISSIONS
          ========================================================= -->
 
-    <!-- Internet access for fetching media from Xiaohongshu -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- Storage permissions for saving downloaded files -->
-    <!-- READ/WRITE for Android 9 and below -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29"
         tools:ignore="ScopedStorage" />
-    <!-- Full storage access for Android 10+ (required for /XHS_Downloads/ folder) -->
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-
-    <!-- Notification permission for Android 13+ -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- Foreground service for background downloads -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
@@ -34,7 +25,7 @@
          ========================================================= -->
     <application
         android:label="XHS Downloader"
-        android:name="${applicationName}"
+        android:name="\${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:requestLegacyExternalStorage="true"
@@ -44,7 +35,7 @@
 
         <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.xhs.downloader.MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
@@ -55,6 +46,10 @@
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
+            
+            <meta-data
+                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+                android:resource="@android:color/black" />
 
             <!-- App launcher intent -->
             <intent-filter>
